@@ -15,6 +15,10 @@ export function Backend(state, action) {
 			return Object.assign({}, state, {
 				connected: true
 			});
+		case ActionTypes.BACKEND_PAIR_DISCONNECTED:
+			return Object.assign({}, state, {
+				connected: false
+			});
 		default:
 			return state;
 	}

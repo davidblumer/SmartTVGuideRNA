@@ -4,3 +4,4 @@
 
 export { default as Dashboard } from './dashboard';
 export { default as Infos } from './infos';
+export { default as Remote } from './remote';

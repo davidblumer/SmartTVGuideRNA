@@ -35,6 +35,11 @@ class Dashboard extends Component {
 				dispatch({
 					type: ActionTypes.BACKEND_TV_FOUND
 				})
+			},
+			pairDisconnected: ()=> {
+				dispatch({
+					type: ActionTypes.BACKEND_PAIR_DISCONNECTED
+				})
 			}
 		})
 	}
@@ -57,22 +62,23 @@ class Dashboard extends Component {
 		const {Views, Backend} = this.props;
 		if (Backend.connected) {
 			return (
-				<TabBarIOS>
+				<TabBarIOS
+					barTintColor={'black'}
+					tintColor={'white'}
+				>
 					<TabBarIOS.Item
 						title="Infos"
 						selected={Views.tab === Constants.LIST}
 						onPress={()=>this.onPressTab(Constants.LIST)}
 					>
-						<Routes.Infos/>
+						<Routes.Infos socket={this.socket}/>
 					</TabBarIOS.Item>
 					<TabBarIOS.Item
 						title="Remote"
 						selected={Views.tab === Constants.REMOTE}
 						onPress={()=>this.onPressTab(Constants.REMOTE)}
 					>
-						<View>
-							<Text>REMOTE</Text>
-						</View>
+						<Routes.Remote socket={this.socket}/>
 					</TabBarIOS.Item>
 				</TabBarIOS>
 			);

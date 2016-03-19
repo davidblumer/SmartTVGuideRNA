@@ -8,7 +8,7 @@ import * as Routes from "./app/routes";
 // import socket from './app/socket';
 
 class SmartTVGuideRNA extends Component {
-	// 52,152,219,1
+	//
 	render() {
 		return (
 			<Provider store={store}>
