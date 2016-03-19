@@ -3,17 +3,28 @@
  */
 'use strict';
 import React, {AppRegistry, Component, StyleSheet, Text, View} from "react-native";
+import {mix} from "../theme";
+import * as ActionTypes from "../flux/actionTypes";
 
-import * as Theme from '../theme';
+const redux = require('react-redux');
 
-export default class Dashboard extends Component {
+class Dashboard extends Component {
+	componentWillMount() {
+		const { dispatch } = this.props;
+		dispatch({
+			type: ActionTypes.FOO
+		});
+	}
+
 	render() {
-		const style = Theme.mix('container');
-		console.log(style);
 		return (
-			<View style={style}>
-				<Text>Dashboard</Text>
+			<View style={mix('container')}>
+				<Text>Please scan the QR Code on your Smart TV</Text>
 			</View>
 		);
 	}
 }
+
+export default redux.connect((state)=> {
+	return {}
+})(Dashboard);
