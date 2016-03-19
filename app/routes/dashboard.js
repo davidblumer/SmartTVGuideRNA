@@ -10,6 +10,8 @@ import {throttle} from "lodash";
 import {merge} from "../theme";
 import Camera from "react-native-camera";
 import Socket from "../socket";
+var Icon = require('react-native-vector-icons/FontAwesome');
+
 
 const redux = require('react-redux');
 
@@ -66,34 +68,38 @@ class Dashboard extends Component {
 					barTintColor={'black'}
 					tintColor={'white'}
 				>
-					<TabBarIOS.Item
+					<Icon.TabBarItemIOS
 						title="Infos"
 						selected={Views.tab === Constants.LIST}
 						onPress={()=>this.onPressTab(Constants.LIST)}
+						iconName={'info'}
 					>
 						<Routes.Infos socket={this.socket}/>
-					</TabBarIOS.Item>
-					<TabBarIOS.Item
+					</Icon.TabBarItemIOS>
+					<Icon.TabBarItemIOS
 						title="Remote"
 						selected={Views.tab === Constants.REMOTE}
 						onPress={()=>this.onPressTab(Constants.REMOTE)}
+						iconName={'wifi'}
 					>
 						<Routes.Remote socket={this.socket}/>
-					</TabBarIOS.Item>
-					<TabBarIOS.Item
+					</Icon.TabBarItemIOS>
+					<Icon.TabBarItemIOS
 						title="Vote"
 						selected={Views.tab === Constants.VOTE}
 						onPress={()=>this.onPressTab(Constants.VOTE)}
+						iconName={'bar-chart'}
 					>
 						<Routes.Vote socket={this.socket}/>
-					</TabBarIOS.Item>
-					<TabBarIOS.Item
+					</Icon.TabBarItemIOS>
+					<Icon.TabBarItemIOS
 						title="Beard"
 						selected={Views.tab === Constants.BEARD}
 						onPress={()=>this.onPressTab(Constants.BEARD)}
+						iconName={'glass'}
 					>
 						<Routes.Beard socket={this.socket}/>
-					</TabBarIOS.Item>
+					</Icon.TabBarItemIOS>
 				</TabBarIOS>
 			);
 		} else {
