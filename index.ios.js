@@ -1,12 +1,25 @@
 'use strict';
 import React, {AppRegistry, Component, StyleSheet, Text, View} from "react-native";
+import Router from 'react-native-simple-router';
+
+class Dashboard extends Component {
+	render() {
+		return <View><Text>Dashboard</Text></View>
+	}
+}
 
 class SmartTVGuideRNA extends Component {
 	render() {
 		return (
-			<View style={styles.container}>
-				<Text>SmartTVGuideRNA</Text>
-			</View>
+			<Router
+				firstRoute={{
+					name: 'Dashboard',
+					component: Dashboard,
+					headerStyle: {
+						backgroundColor: 'black'
+					}
+				}}
+			/>
 		);
 	}
 }
