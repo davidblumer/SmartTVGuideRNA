@@ -1,21 +1,11 @@
 'use strict';
 import React, {AppRegistry, Component, StyleSheet, Text, View} from "react-native";
 import Router from "react-native-simple-router";
-import * as Theme from "./app/theme";
+
+import * as Theme from './app/theme';
+import * as Routes from './app/routes';
 
 const styles = Theme.merge({});
-
-class Dashboard extends Component {
-	render() {
-		const style = Theme.mix('container');
-		console.log(style);
-		return (
-			<View style={style}>
-				<Text>Dashboard</Text>
-			</View>
-		);
-	}
-}
 
 class SmartTVGuideRNA extends Component {
 	render() {
@@ -23,7 +13,7 @@ class SmartTVGuideRNA extends Component {
 			<Router
 				firstRoute={{
 					name: 'Dashboard',
-					component: Dashboard,
+					component: Routes.Dashbaord,
 					headerStyle: {
 						backgroundColor: 'black'
 					}
