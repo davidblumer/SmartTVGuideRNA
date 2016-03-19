@@ -6,12 +6,14 @@ import * as Constants from "../constants";
 export function Backend(state, action) {
 	if (state == null) {
 		return {
+			connected: false
 		}
 	}
 
 	switch (action.type) {
-		case ActionTypes.FOO:
+		case ActionTypes.BACKEND_TV_FOUND:
 			return Object.assign({}, state, {
+				connected: true
 			});
 		default:
 			return state;

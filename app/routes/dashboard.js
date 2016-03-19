@@ -6,8 +6,10 @@ import React, {AppRegistry, Component, StyleSheet, Text, View, TabBarIOS, Dimens
 import * as Constants from "../constants";
 import * as Routes from "../routes";
 import * as ActionTypes from "../flux/actionTypes";
+import {throttle} from "lodash";
 import {merge} from "../theme";
 import Camera from "react-native-camera";
+import Socket from "../socket";
 
 const redux = require('react-redux');
 
@@ -23,6 +25,20 @@ const styles = merge({
 
 class Dashboard extends Component {
 
+	constructor(props) {
+		super(props);
+
+		const {dispatch} = props;
+		
+		this.socket = new Socket({
+			tvFound: ()=> {
+				dispatch({
+					type: ActionTypes.BACKEND_TV_FOUND
+				})
+			}
+		})
+	}
+
 	onPressTab(tab) {
 		const {dispatch} = this.props;
 
@@ -30,6 +46,11 @@ class Dashboard extends Component {
 			type: ActionTypes.VIEWS_SELECT_TAB,
 			tab
 		})
+	}
+
+	onBarCodeRead(code) {
+		const {dispatch} = this.props;
+		this.socket.sendCode(code.data);
 	}
 
 	render() {
@@ -59,7 +80,9 @@ class Dashboard extends Component {
 			return (
 				<Camera ref={'camera'}
 						style={styles.preview}
-						aspect={Camera.constants.Aspect.Fill}>
+						aspect={Camera.constants.Aspect.Fill}
+						onBarCodeRead={throttle(this.onBarCodeRead.bind(this), 3000)}
+				>
 					<Text style={{backgroundColor: 'rgba(0,0,0,0.5)', color: 'white', padding: 5}}>Please Scan the QR Code on your Smart TV</Text>
 				</Camera>
 			);

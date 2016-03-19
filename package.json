@@ -6,10 +6,8 @@
     "start": "node node_modules/react-native/local-cli/cli.js start --reset-cache"
   },
   "dependencies": {
-    "crypto": "0.0.3",
     "lodash": "^4.6.1",
     "moment": "^2.12.0",
-    "node-uuid": "^1.4.7",
     "react-native": "^0.21.0",
     "react-native-camera": "^0.3.8",
     "react-native-device-uuid": "^1.2.0",
