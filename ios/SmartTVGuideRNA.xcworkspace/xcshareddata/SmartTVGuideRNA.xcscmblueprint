@@ -1,0 +1,30 @@
+{
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "6EE6ECA66185A01AFF833158EE01ACA2800F0772",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
+
+  },
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "0B83204D67A35751DB3DC43D2978BB82F1709C05" : 0,
+    "6EE6ECA66185A01AFF833158EE01ACA2800F0772" : 0
+  },
+  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "79AE9FD3-4A11-432D-B952-51F2B1F8D62C",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "0B83204D67A35751DB3DC43D2978BB82F1709C05" : "",
+    "6EE6ECA66185A01AFF833158EE01ACA2800F0772" : "SmartTVGuideRNA\/"
+  },
+  "DVTSourceControlWorkspaceBlueprintNameKey" : "SmartTVGuideRNA",
+  "DVTSourceControlWorkspaceBlueprintVersion" : 204,
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "ios\/SmartTVGuideRNA.xcworkspace",
+  "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "github.com:SocialbitGmbH\/base-api.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "0B83204D67A35751DB3DC43D2978BB82F1709C05"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "github.com:SocialbitGmbH\/SmartTVGuideRNA.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "6EE6ECA66185A01AFF833158EE01ACA2800F0772"
+    }
+  ]
+}

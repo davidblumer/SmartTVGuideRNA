@@ -2,22 +2,22 @@
 import React, {AppRegistry, Component, StyleSheet, Text, View, TabBarIOS} from "react-native";
 import Router from "react-native-simple-router";
 import {Provider} from "react-redux";
-import * as Theme from "./app/theme";
 import store from "./app/flux/store";
 import * as Routes from "./app/routes";
 
-const styles = Theme.merge({});
+// import socket from './app/socket';
 
 class SmartTVGuideRNA extends Component {
+	// 52,152,219,1
 	render() {
 		return (
 			<Provider store={store}>
 				<Router
 					firstRoute={{
-						name: 'SmartTVGuide',
+						name: 'SmartGuide',
 						component: Routes.Dashboard,
 						headerStyle: {
-							backgroundColor: 'black'
+							backgroundColor: 'rgba(41, 128, 184, 1)'
 						}
 					}}
 				/>

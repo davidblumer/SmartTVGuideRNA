@@ -3,6 +3,21 @@ import {combineReducers} from "redux";
 import * as ActionTypes from "./actionTypes";
 import * as Constants from "../constants";
 
+export function Backend(state, action) {
+	if (state == null) {
+		return {
+		}
+	}
+
+	switch (action.type) {
+		case ActionTypes.FOO:
+			return Object.assign({}, state, {
+			});
+		default:
+			return state;
+	}
+}
+
 export function Views(state, action) {
 	if (state == null) {
 		return {
@@ -21,7 +36,7 @@ export function Views(state, action) {
 }
 
 const combinedReducers = combineReducers({
-	Views
+	Views, Backend
 });
 
 export default combinedReducers;
