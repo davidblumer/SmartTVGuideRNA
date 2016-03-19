@@ -6,7 +6,7 @@ import * as Constants from "../constants";
 export function Backend(state, action) {
 	if (state == null) {
 		return {
-			connected: false
+			connected: true
 		}
 	}
 

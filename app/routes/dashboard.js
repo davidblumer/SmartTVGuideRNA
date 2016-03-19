@@ -80,6 +80,20 @@ class Dashboard extends Component {
 					>
 						<Routes.Remote socket={this.socket}/>
 					</TabBarIOS.Item>
+					<TabBarIOS.Item
+						title="Vote"
+						selected={Views.tab === Constants.VOTE}
+						onPress={()=>this.onPressTab(Constants.VOTE)}
+					>
+						<Routes.Vote socket={this.socket}/>
+					</TabBarIOS.Item>
+					<TabBarIOS.Item
+						title="Beard"
+						selected={Views.tab === Constants.BEARD}
+						onPress={()=>this.onPressTab(Constants.BEARD)}
+					>
+						<Routes.Beard socket={this.socket}/>
+					</TabBarIOS.Item>
 				</TabBarIOS>
 			);
 		} else {
