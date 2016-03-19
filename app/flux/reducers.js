@@ -1,24 +1,27 @@
 // third party
 import {combineReducers} from "redux";
 import * as ActionTypes from "./actionTypes";
-var _ = require('lodash');
-var moment = require('moment');
+import * as Constants from "../constants";
 
-export function User(state, action) {
+export function Views(state, action) {
 	if (state == null) {
-		return {}
+		return {
+			tab: Constants.LIST
+		}
 	}
 
 	switch (action.type) {
-		case ActionTypes.FOO:
-			return Object.assign({}, state, {});
+		case ActionTypes.VIEWS_SELECT_TAB:
+			return Object.assign({}, state, {
+				tab: action.tab
+			});
 		default:
 			return state;
 	}
 }
 
 const combinedReducers = combineReducers({
-	User
+	Views
 });
 
 export default combinedReducers;

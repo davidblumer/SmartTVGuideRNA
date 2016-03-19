@@ -1,5 +1,5 @@
 'use strict';
-import React, {AppRegistry, Component, StyleSheet, Text, View} from "react-native";
+import React, {AppRegistry, Component, StyleSheet, Text, View, TabBarIOS} from "react-native";
 import Router from "react-native-simple-router";
 import {Provider} from "react-redux";
 import * as Theme from "./app/theme";
@@ -14,8 +14,8 @@ class SmartTVGuideRNA extends Component {
 			<Provider store={store}>
 				<Router
 					firstRoute={{
-						name: 'Dashboard',
-						component: Routes.Dashbaord,
+						name: 'SmartTVGuide',
+						component: Routes.Dashboard,
 						headerStyle: {
 							backgroundColor: 'black'
 						}
