@@ -5,6 +5,7 @@
 export const LIST = 'list';
 export const REMOTE = 'remote';
 export const VOTE = 'vote';
+export const PRESENTATION = 'presentation';
 export const BEARD = 'beard';
 
 export const TWEET = 'twitter';

@@ -2,7 +2,7 @@
  * Created by helion on 19/03/16.
  */
 'use strict';
-import React, {AppRegistry, Component, StyleSheet, Text, View, TabBarIOS, ListView} from "react-native";
+import React, {AppRegistry, Component, StyleSheet, Text, View, TabBarIOS, ListView, TouchableHighlight} from "react-native";
 import {merge} from "../theme";
 
 const redux = require('react-redux');
@@ -15,7 +15,7 @@ class Presentation extends Component {
 	}
 
 	onPressPresentation() {
-		
+
 	}
 
 	render() {

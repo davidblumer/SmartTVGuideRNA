@@ -92,6 +92,14 @@ class Dashboard extends Component {
 					>
 						<Routes.CreateVote socket={this.socket}/>
 					</Icon.TabBarItemIOS>
+					<Icon.TabBarItemIOS
+						title="Presentation"
+						selected={Views.tab === Constants.PRESENTATION}
+						onPress={()=>this.onPressTab(Constants.PRESENTATION)}
+						iconName={'bar-chart'}
+					>
+						<Routes.Presentation socket={this.socket}/>
+					</Icon.TabBarItemIOS>
 				</TabBarIOS>
 			);
 		} else {

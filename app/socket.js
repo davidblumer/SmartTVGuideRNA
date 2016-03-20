@@ -33,6 +33,10 @@ class Socket {
 		this.socket.on('pair_disconnected', this.callbacks.pairDisconnected);
 	}
 
+	sendEvent(event){
+		this.socket.emit('send_event', event);
+	}
+
 	sendCode(code) {
 		this.socket.emit('send_code', code);
 	}
