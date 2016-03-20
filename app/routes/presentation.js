@@ -14,8 +14,10 @@ class Presentation extends Component {
 		super(props);
 	}
 
-	onPressPresentation() {
+	onPressPresentation(action) {
+		return ()=> {
 
+		}
 	}
 
 	render() {
@@ -23,9 +25,17 @@ class Presentation extends Component {
 			<View style={{flex: 1}}>
 				<TouchableHighlight
 					underlayColor={'transparent'}
-					onPress={this.onPressPresentation}
+					style={{backgroundColor: 'red', padding: 10}}
+					onPress={this.onPressPresentation('start')}
 				>
-					<Text>GO</Text>
+					<Text>Start</Text>
+				</TouchableHighlight>
+				<TouchableHighlight
+					underlayColor={'transparent'}
+					style={{backgroundColor: 'red', padding: 10}}
+					onPress={this.onPressPresentation('start')}
+				>
+					<Text>Start</Text>
 				</TouchableHighlight>
 			</View>
 		);

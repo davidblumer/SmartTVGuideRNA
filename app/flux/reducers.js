@@ -27,7 +27,8 @@ export function Backend(state, action) {
 export function Views(state, action) {
 	if (state == null) {
 		return {
-			tab: Constants.LIST
+			tab: Constants.LIST,
+			subView: Constants.CREATEVOTE
 		}
 	}
 
@@ -35,6 +36,10 @@ export function Views(state, action) {
 		case ActionTypes.VIEWS_SELECT_TAB:
 			return Object.assign({}, state, {
 				tab: action.tab
+			});
+		case ActionTypes.VOTE_NEW_VOTE_RECEIVED:
+			return Object.assign({}, state, {
+				subView: Constants.VOTE
 			});
 		default:
 			return state;
@@ -62,7 +67,8 @@ export function CreateVote(state, action) {
 	if (state == null) {
 		return {
 			question: '',
-			answers: []
+			answers: [],
+			vote: {}
 		}
 	}
 
@@ -85,6 +91,10 @@ export function CreateVote(state, action) {
 			answers[action.answer.index].text = action.answer.text;
 			return Object.assign({}, state, {
 				answers
+			});
+		case ActionTypes.VOTE_NEW_VOTE_RECEIVED:
+			return Object.assign({}, state, {
+				vote: action.vote
 			});
 		default:
 			return state;

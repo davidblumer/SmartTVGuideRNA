@@ -31,6 +31,7 @@ class Socket {
 		});
 		this.socket.on('tv_found', this.callbacks.tvFound);
 		this.socket.on('pair_disconnected', this.callbacks.pairDisconnected);
+		this.socket.on('new_vote', this.callbacks.newVote);
 	}
 
 	sendEvent(event){
@@ -47,6 +48,10 @@ class Socket {
 
 	createVote(vote){
 		this.socket.emit('create_vote', vote);
+	}
+	
+	vote(vote){
+		this.socket.emit('vote', vote);
 	}
 
 	sendUp() {

@@ -5,6 +5,7 @@
 import React, {AppRegistry, Component, StyleSheet, Text, View, TabBarIOS, TextInput, ListView, Dimensions, TouchableHighlight} from "react-native";
 import {merge} from "../theme";
 import * as ActionTypes from "../flux/actionTypes";
+import * as Constants from "../constants";
 
 const redux = require('react-redux');
 
@@ -76,41 +77,74 @@ class CreateVote extends Component {
 		this.refs.question.setNativeProps({text: ''});
 	}
 
-	render() {
-		const {dispatch, CreateVote} = this.props;
+	onSelect(row, section, index) {
+		const {dispatch, CreateVote, socket} = this.props;
+		return ()=> {
+			socket.vote({
+				id: CreateVote.vote.pollId,
+				optionIndex: index
+			});
+		}
+	}
 
+	renderAnswer(row, section, index) {
 		return (
-			<View style={{flex: 1}}>
-				<TextInput
-					ref={'question'}
-					placeholder={'Your Question'}
-					style={{height: 40, padding: 10}}
-					onChangeText={(text)=>this.setState({question: text})}
-					onSubmitEditing={()=>{
-						dispatch({
-							type: ActionTypes.CREATEVOTE_SET_QUESTION,
-							question: this.state.question
-						})
-					}}
-				/>
-				<TouchableHighlight
-					style={{padding: 10, backgroundColor: 'rgba(52,152,219,1)'}}
-					onPress={this.onAddAnswer.bind(this)}
-				>
-					<Text style={{color: 'white'}}>Add answer</Text>
-				</TouchableHighlight>
-				<TouchableHighlight
-					style={{padding: 10, backgroundColor: 'rgba(52,152,219,1)'}}
-					onPress={this.onSave.bind(this)}
-				>
-					<Text style={{color: 'white'}}>Save</Text>
-				</TouchableHighlight>
-				<ListView
-					dataSource={this.dataSource.cloneWithRows(CreateVote.answers)}
-					renderRow={this.renderRow.bind(this)}
-				/>
-			</View>
+			<TouchableHighlight
+				style={{padding: 10, backgroundColor: 'rgba(52,152,219,1)'}}
+				onPress={this.onSelect(row, section, index).bind(this)}
+			>
+				<Text style={{color: 'white'}}>{row.title}</Text>
+			</TouchableHighlight>
 		);
+	}
+
+	render() {
+		const {dispatch, CreateVote, Views, socket} = this.props;
+
+		if (Views.subView === Constants.CREATEVOTE) {
+			return (
+				<View style={{flex: 1}}>
+					<TextInput
+						ref={'question'}
+						placeholder={'Your Question'}
+						style={{height: 40, padding: 10}}
+						onChangeText={(text)=>this.setState({question: text})}
+						onSubmitEditing={()=>{
+							dispatch({
+								type: ActionTypes.CREATEVOTE_SET_QUESTION,
+								question: this.state.question
+							})
+						}}
+					/>
+					<TouchableHighlight
+						style={{padding: 10, backgroundColor: 'rgba(52,152,219,1)'}}
+						onPress={this.onAddAnswer.bind(this)}
+					>
+						<Text style={{color: 'white'}}>Add answer</Text>
+					</TouchableHighlight>
+					<TouchableHighlight
+						style={{padding: 10, backgroundColor: 'rgba(52,152,219,1)'}}
+						onPress={this.onSave.bind(this)}
+					>
+						<Text style={{color: 'white'}}>Save</Text>
+					</TouchableHighlight>
+					<ListView
+						dataSource={this.dataSource.cloneWithRows(CreateVote.answers)}
+						renderRow={this.renderRow.bind(this)}
+					/>
+				</View>
+			);
+		} else {
+			return (
+				<View style={{flex: 1}}>
+					<Text style={{padding: 10}}>{CreateVote.vote.title}</Text>
+					<ListView
+						dataSource={this.dataSource.cloneWithRows(CreateVote.vote.options)}
+						renderRow={this.renderAnswer.bind(this)}
+					/>
+				</View>
+			);
+		}
 	}
 }
 

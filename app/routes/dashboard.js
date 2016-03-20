@@ -31,7 +31,7 @@ class Dashboard extends Component {
 		super(props);
 
 		const {dispatch} = props;
-		
+
 		this.socket = new Socket({
 			tvFound: ()=> {
 				dispatch({
@@ -41,6 +41,12 @@ class Dashboard extends Component {
 			pairDisconnected: ()=> {
 				dispatch({
 					type: ActionTypes.BACKEND_PAIR_DISCONNECTED
+				})
+			},
+			newVote: (vote)=> {
+				dispatch({
+					type: ActionTypes.VOTE_NEW_VOTE_RECEIVED,
+					vote
 				})
 			}
 		})

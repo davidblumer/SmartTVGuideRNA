@@ -39,6 +39,10 @@ const styles = merge({
 class Infos extends Component {
 	constructor(props) {
 		super(props);
+		this.state = {
+			message: ''
+		};
+		
 		this.dataSource = new ListView.DataSource({rowHasChanged: (a, b)=>a !== b});
 		this.data = [
 			{type: constants.TWEET, title: 'Title', content: 'BLA BLA'},
@@ -78,7 +82,7 @@ class Infos extends Component {
 			type: ActionTypes.CHAT_ADD_MESSAGE,
 			message: {
 				type: constants.CHAT, title: 'Title',
-				content: this.state.message
+				content: this.state.message || ''
 			}
 		});
 
