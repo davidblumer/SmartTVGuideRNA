@@ -36,6 +36,10 @@ class Socket {
 	sendCode(code) {
 		this.socket.emit('send_code', code);
 	}
+	
+	sendMessage(message){
+		this.socket.emit('send_message', message);
+	}
 
 	sendUp() {
 		this.socket.emit('selection_up');

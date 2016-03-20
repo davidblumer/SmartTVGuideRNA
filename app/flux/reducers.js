@@ -41,8 +41,47 @@ export function Views(state, action) {
 	}
 }
 
+export function Chat(state, action) {
+	if (state == null) {
+		return {
+			messages: []
+		}
+	}
+
+	switch (action.type) {
+		case ActionTypes.CHAT_ADD_MESSAGE:
+			return Object.assign({}, state, {
+				messages: [action.message, ...state.messages]
+			});
+		default:
+			return state;
+	}
+}
+
+export function CreateVote(state, action) {
+	if (state == null) {
+		return {
+			question: '',
+			answers: []
+		}
+	}
+
+	switch (action.type) {
+		case ActionTypes.CREATEVOTE_SET_QUESTION:
+			return Object.assign({}, state, {
+				question: action.question
+			});
+		case ActionTypes.CREATEVOTE_ADD_ANSWER:
+			return Object.assign({}, state, {
+				answers: [...state.answers, {index: state.answers.length}]
+			});
+		default:
+			return state;
+	}
+}
+
 const combinedReducers = combineReducers({
-	Views, Backend
+	Views, Backend, CreateVote, Chat
 });
 
 export default combinedReducers;

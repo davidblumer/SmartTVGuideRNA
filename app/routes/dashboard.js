@@ -85,12 +85,12 @@ class Dashboard extends Component {
 						<Routes.Remote socket={this.socket}/>
 					</Icon.TabBarItemIOS>
 					<Icon.TabBarItemIOS
-						title="Vote"
+						title="Create vote"
 						selected={Views.tab === Constants.VOTE}
 						onPress={()=>this.onPressTab(Constants.VOTE)}
 						iconName={'bar-chart'}
 					>
-						<Routes.Vote socket={this.socket}/>
+						<Routes.CreateVote socket={this.socket}/>
 					</Icon.TabBarItemIOS>
 					<Icon.TabBarItemIOS
 						title="Beard"
