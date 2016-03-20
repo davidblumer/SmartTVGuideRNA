@@ -93,7 +93,7 @@ class Infos extends Component {
 			<View style={{flex: 1}}>
 				<TextInput
 					ref={'input'}
-					style={{height: 40, padding: 5}}
+					style={{height: 40, padding: 10}}
 					placeholder={'Chat'}
 					onChangeText={(text)=>this.setState({message: text})}
 					onSubmitEditing={this.submitChat.bind(this)}

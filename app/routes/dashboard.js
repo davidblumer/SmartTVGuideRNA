@@ -92,14 +92,6 @@ class Dashboard extends Component {
 					>
 						<Routes.CreateVote socket={this.socket}/>
 					</Icon.TabBarItemIOS>
-					<Icon.TabBarItemIOS
-						title="Beard"
-						selected={Views.tab === Constants.BEARD}
-						onPress={()=>this.onPressTab(Constants.BEARD)}
-						iconName={'glass'}
-					>
-						<Routes.Beard socket={this.socket}/>
-					</Icon.TabBarItemIOS>
 				</TabBarIOS>
 			);
 		} else {

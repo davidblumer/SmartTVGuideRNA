@@ -73,7 +73,18 @@ export function CreateVote(state, action) {
 			});
 		case ActionTypes.CREATEVOTE_ADD_ANSWER:
 			return Object.assign({}, state, {
-				answers: [...state.answers, {index: state.answers.length}]
+				answers: [...state.answers, {index: state.answers.length, text: ''}]
+			});
+		case ActionTypes.CREATEVOTE_SAVE_VOTE:
+			return Object.assign({}, state, {
+				question: '',
+				answers: []
+			});
+		case ActionTypes.CREATEVOTE_SET_ANSWER:
+			let answers = _.cloneDeep(state.answers);
+			answers[action.answer.index].text = action.answer.text;
+			return Object.assign({}, state, {
+				answers
 			});
 		default:
 			return state;

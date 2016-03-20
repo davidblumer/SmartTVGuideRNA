@@ -9,14 +9,24 @@ const redux = require('react-redux');
 
 const styles = merge({});
 
-class Beard extends Component {
+class Presentation extends Component {
 	constructor(props) {
 		super(props);
+	}
+
+	onPressPresentation() {
+		
 	}
 
 	render() {
 		return (
 			<View style={{flex: 1}}>
+				<TouchableHighlight
+					underlayColor={'transparent'}
+					onPress={this.onPressPresentation}
+				>
+					<Text>GO</Text>
+				</TouchableHighlight>
 			</View>
 		);
 	}
@@ -28,4 +38,4 @@ const select = (state) => {
 	}
 };
 
-export default redux.connect(select)(Beard);
+export default redux.connect(select)(Presentation);

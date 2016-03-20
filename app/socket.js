@@ -41,6 +41,10 @@ class Socket {
 		this.socket.emit('send_message', message);
 	}
 
+	createVote(vote){
+		this.socket.emit('create_vote', vote);
+	}
+
 	sendUp() {
 		this.socket.emit('selection_up');
 	}

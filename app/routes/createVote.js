@@ -28,15 +28,22 @@ class CreateVote extends Component {
 	}
 
 	renderRow(row) {
+		const {dispatch} = this.props;
 		return (
-			<View style={{flex: 1, backgroundColor: 'red'}}>
+			<View style={{flex: 1}}>
 				<TextInput
-					style={{height: 40}}
-					placeholder={'Your Question'}
+					style={{height: 40, padding: 10}}
+					placeholder={'Your answer'}
 					onChangeText={(text)=>{
 						let x = {};
-						x['question'+row.index] = text;
+						x['answer'+row.index] = text;
 						this.setState(x);
+					}}
+					onSubmitEditing={()=>{
+						dispatch({
+							type: ActionTypes.CREATEVOTE_SET_ANSWER,
+							answer: { index: row.index, text: this.state['answer' + row.index]}
+						})
 					}}
 				/>
 			</View>
@@ -51,29 +58,49 @@ class CreateVote extends Component {
 	}
 
 	onSave() {
-		const {dispatch} = this.props;
+		const {dispatch, CreateVote, socket} = this.props;
+
+		const options = _.map(CreateVote.answers, 'text');
+		const vote = {
+			title: CreateVote.question,
+			options
+		};
+
+		socket.createVote(vote);
+
 		dispatch({
-			type: ActionTypes.CREATEVOTE_ADD_ANSWER
-		})
+			type: ActionTypes.CREATEVOTE_SAVE_VOTE,
+			vote
+		});
+
+		this.refs.question.setNativeProps({text: ''});
 	}
 
 	render() {
-		const {CreateVote} = this.props;
+		const {dispatch, CreateVote} = this.props;
 
 		return (
 			<View style={{flex: 1}}>
 				<TextInput
+					ref={'question'}
 					placeholder={'Your Question'}
+					style={{height: 40, padding: 10}}
 					onChangeText={(text)=>this.setState({question: text})}
+					onSubmitEditing={()=>{
+						dispatch({
+							type: ActionTypes.CREATEVOTE_SET_QUESTION,
+							question: this.state.question
+						})
+					}}
 				/>
 				<TouchableHighlight
-					style={{padding: 20, backgroundColor: 'rgba(52,152,219,1)'}}
+					style={{padding: 10, backgroundColor: 'rgba(52,152,219,1)'}}
 					onPress={this.onAddAnswer.bind(this)}
 				>
 					<Text style={{color: 'white'}}>Add answer</Text>
 				</TouchableHighlight>
 				<TouchableHighlight
-					style={{padding: 20, backgroundColor: 'rgba(52,152,219,1)'}}
+					style={{padding: 10, backgroundColor: 'rgba(52,152,219,1)'}}
 					onPress={this.onSave.bind(this)}
 				>
 					<Text style={{color: 'white'}}>Save</Text>
