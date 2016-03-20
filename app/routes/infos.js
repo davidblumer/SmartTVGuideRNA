@@ -20,7 +20,7 @@ const styles = merge({
 	listItem: {
 		padding: 20,
 		backgroundColor: 'rgba(52,152,219,1)',
-		borderBottomWidth: 1,
+		borderBottomWidth: 0,
 		borderBottomColor: 'white',
 		flexDirection: 'row',
 		alignItems: 'center'
@@ -42,13 +42,13 @@ class Infos extends Component {
 		this.state = {
 			message: ''
 		};
-		
+
 		this.dataSource = new ListView.DataSource({rowHasChanged: (a, b)=>a !== b});
 		this.data = [
-			{type: constants.TWEET, title: 'Title', content: 'BLA BLA'},
-			{type: constants.CHAT, title: 'Title', content: 'BLA BLA'},
-			{type: constants.WEATHER, title: 'Title', content: 'BLA BLA'},
-			{type: constants.AD, title: 'Title', content: 'BLA BLA'}
+			{type: constants.TWEET, title: 'Jim Parsons', content: 'Bazinga!'},
+			{type: constants.CHAT, title: 'Thomas', content: 'Hey Michael!'},
+			{type: constants.WEATHER, title: 'Pasadena', content: 'Sunny'},
+			{type: constants.AD, title: 'Trip to Pasadena', content: '$650'}
 		];
 	}
 

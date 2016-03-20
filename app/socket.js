@@ -69,6 +69,21 @@ class Socket {
 	sendRemove() {
 		this.socket.emit('selection_remove');
 	}
+
+	// for presentation
+	sendWeather(weather){
+		this.socket.emit('send_weather', weather);
+	}
+
+	sendProgram(program){
+		this.socket.emit('send_program', program);
+	}
+	sendTravel(travel){
+		this.socket.emit('send_travel', travel);
+	}
+	sendTwitter(twitter){
+		this.socket.emit('send_twitter', twitter);
+	}
 }
 
 module.exports = Socket;

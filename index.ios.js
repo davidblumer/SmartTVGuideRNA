@@ -14,7 +14,7 @@ class SmartTVGuideRNA extends Component {
 			<Provider store={store}>
 				<Router
 					firstRoute={{
-						name: 'SmartGuide',
+						name: 'smartbar|',
 						component: Routes.Dashboard,
 						headerStyle: {
 							backgroundColor: 'rgba(41, 128, 184, 1)'

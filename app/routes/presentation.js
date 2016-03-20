@@ -7,7 +7,27 @@ import {merge} from "../theme";
 
 const redux = require('react-redux');
 
-const styles = merge({});
+const styles = merge({
+	listItem: {
+		padding: 20,
+		backgroundColor: 'rgba(52,152,219,1)',
+		borderBottomWidth: 1,
+		borderBottomColor: 'white',
+		flexDirection: 'row',
+		alignItems: 'center'
+	},
+	button: {
+		flex: 1,
+		backgroundColor: 'rgba(52,152,219,1)',
+		justifyContent: 'center',
+		alignItems: 'center'
+	},
+	text: {
+		fontSize: 30,
+		color: 'white',
+		fontWeight: 'bold'
+	}
+});
 
 class Presentation extends Component {
 	constructor(props) {
@@ -15,27 +35,48 @@ class Presentation extends Component {
 	}
 
 	onPressPresentation(action) {
+		const {socket} = this.props;
 		return ()=> {
-
+			switch (action) {
+				case 'weather':
+					socket.sendEvent({});
+					break;
+				case 'twitter':
+					socket.sendEvent({});
+					break;
+				case 'travel':
+					socket.sendEvent({});
+					break;
+			}
 		}
 	}
 
 	render() {
 		return (
-			<View style={{flex: 1}}>
+			<View style={{flex: 1, marginBottom: 48}}>
 				<TouchableHighlight
 					underlayColor={'transparent'}
-					style={{backgroundColor: 'red', padding: 10}}
-					onPress={this.onPressPresentation('start')}
+					style={styles.button}
+					underlayColor={'#2D85BF'}
+					onPress={this.onPressPresentation('twitter')}
 				>
-					<Text>Start</Text>
+					<Text style={styles.text}>Weather</Text>
 				</TouchableHighlight>
 				<TouchableHighlight
 					underlayColor={'transparent'}
-					style={{backgroundColor: 'red', padding: 10}}
-					onPress={this.onPressPresentation('start')}
+					style={styles.button}
+					underlayColor={'#2D85BF'}
+					onPress={this.onPressPresentation('travel')}
 				>
-					<Text>Start</Text>
+					<Text style={styles.text}>Travel</Text>
+				</TouchableHighlight>
+				<TouchableHighlight
+					underlayColor={'transparent'}
+					style={styles.button}
+					underlayColor={'#2D85BF'}
+					onPress={this.onPressPresentation('weather')}
+				>
+					<Text style={styles.text}>Twitter</Text>
 				</TouchableHighlight>
 			</View>
 		);
