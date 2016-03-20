@@ -65,7 +65,7 @@ class Presentation extends Component {
 							console.log(response);
 							var result = {
 								date: new Date(),
-								icon: 'tweet',
+								icon: 'twitter',
 								link: '',
 								text: 'Bazinga!',
 								title: 'Jim Parsons',
@@ -96,7 +96,7 @@ class Presentation extends Component {
 							console.log(response);
 							var result = {
 								date: new Date(),
-								icon: 'travel',
+								icon: 'plane',
 								link: '',
 								text: 'Munich',
 								title: 'Best Price Hotel',
