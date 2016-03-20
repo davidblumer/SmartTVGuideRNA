@@ -71,18 +71,8 @@ class Socket {
 	}
 
 	// for presentation
-	sendWeather(weather){
-		this.socket.emit('send_weather', weather);
-	}
-
-	sendProgram(program){
-		this.socket.emit('send_program', program);
-	}
-	sendTravel(travel){
-		this.socket.emit('send_travel', travel);
-	}
-	sendTwitter(twitter){
-		this.socket.emit('send_twitter', twitter);
+	newContent(content){
+		this.socket.emit('new_content', content);
 	}
 }
 

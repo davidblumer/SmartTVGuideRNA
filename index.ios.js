@@ -18,7 +18,8 @@ class SmartTVGuideRNA extends Component {
 						component: Routes.Dashboard,
 						headerStyle: {
 							backgroundColor: 'rgba(41, 128, 184, 1)'
-						}
+						},
+
 					}}
 				/>
 			</Provider>

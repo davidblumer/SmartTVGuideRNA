@@ -71,6 +71,9 @@ class Dashboard extends Component {
 		if (Backend.connected) {
 			return (
 				<TabBarIOS
+					style={{
+						backgroundColor: 'rgba(52,152,219,1)'
+					}}
 					barTintColor={'black'}
 					tintColor={'white'}
 				>

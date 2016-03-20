@@ -90,10 +90,10 @@ class CreateVote extends Component {
 	renderAnswer(row, section, index) {
 		return (
 			<TouchableHighlight
-				style={{padding: 10, backgroundColor: 'rgba(52,152,219,1)'}}
+				style={{padding: 10, flex: 1}}
 				onPress={this.onSelect(row, section, index).bind(this)}
 			>
-				<Text style={{color: 'white'}}>{row.title}</Text>
+				<Text style={{color: 'white', fontSize: 16}}>{row.title}</Text>
 			</TouchableHighlight>
 		);
 	}
@@ -107,7 +107,7 @@ class CreateVote extends Component {
 					<TextInput
 						ref={'question'}
 						placeholder={'Your Question'}
-						style={{height: 40, padding: 10}}
+						style={{height: 40, padding: 10, backgroundColor: 'white'}}
 						onChangeText={(text)=>this.setState({question: text})}
 						onSubmitEditing={()=>{
 							dispatch({
@@ -137,7 +137,7 @@ class CreateVote extends Component {
 		} else {
 			return (
 				<View style={{flex: 1}}>
-					<Text style={{padding: 10}}>{CreateVote.vote.title}</Text>
+					<Text style={{padding: 10, fontWeight: 'bold', fontSize: 24, color: 'white'}}>{CreateVote.vote.title}</Text>
 					<ListView
 						dataSource={this.dataSource.cloneWithRows(CreateVote.vote.options)}
 						renderRow={this.renderAnswer.bind(this)}

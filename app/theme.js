@@ -9,10 +9,7 @@ const style = {
 		flex: 1,
 		justifyContent: 'center',
 		alignItems: 'center',
-		backgroundColor: '#F5FCFF'
-	},
-	red: {
-		backgroundColor: 'red'
+		backgroundColor: 'rgba(52,152,219,1)'
 	}
 };
 
